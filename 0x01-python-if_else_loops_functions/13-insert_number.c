@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "lists.h"
 
+listint_t *create_node(int n);
 /**
  * insert_node - inserts a number into listint_t list
  * @head: pointer to pointer of first node of listint_t list
@@ -11,26 +13,58 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *new;
-	listint_t *current;
+	listint_t *new_node = NULL;
+	listint_t *cur_node = NULL;
 
-	current = *head;
-
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
+	if (!head)
 		return (NULL);
-
-	new ->n = number;
-	new->next = NULL;
-
-	if (*head == NULL)
-		*head = new;
-	else
+	else if (!(*head))
 	{
-		while (current->next != NULL)
-			current = current->next;
-		current->next = new;
+		new_node = create_node(number);
+		*head = new_node;
+		return (new_node);
 	}
 
-	return (new);
+	cur_node = *head;
+	while (cur_node)
+	{
+		/* need to insert at head */
+		if (cur_node->n >= number)
+		{
+			new_node = create_node(number);
+			new_node->next = cur_node;
+			*head = new_node;
+			return (new_node);
+		}
+		else if (cur_node->n <= number)
+		{
+			if (!cur_node->next || cur_node->next->n >= number)
+			{
+				new_node = create_node(number);
+				new_node->next = cur_node->next;
+				cur_node->next = new_node;
+				return (cur_node->next);
+			}
+		}
+		cur_node = cur_node->next;
+	}
+	return (NULL);
+}
+
+/**
+ * create_node - creates a new node for the LL
+ * @n: data to insert into new node
+ *
+ * Return: pointer to newly allocated node
+ */
+listint_t *create_node(int n)
+{
+	listint_t *ret = NULL;
+
+	ret = malloc(sizeof(listint_t));
+	if (!ret)
+		return (NULL);
+	ret->next = NULL;
+	ret->n = n;
+	return (ret);
 }
