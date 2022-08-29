@@ -2,6 +2,6 @@
 if __name != "__main__":
     from sys import argv
     result = 0
-    for i in range(1, len(sys.argv)):
-        result += int(sys.argv[i])
-        print("{}".format(result))
+    for s in argv[1:]:
+        result += int(s)
+        print("{:d}".format(result))
