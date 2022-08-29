@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-def uppercase(str):
-    print("{:c}".format(str), end="")
+import string
+    print(string.ascii_uppercase)
