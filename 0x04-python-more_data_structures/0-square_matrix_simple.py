@@ -5,5 +5,5 @@ def square_matrix_simple(matrix=[]):
             [5, 6, 7],
             ]
 
-    for x in matrix:
+    for x in matrix[]:
         print(x)
