@@ -6,4 +6,4 @@ def square_matrix_simple(matrix=[]):
             ]
 
     for x in matrix:
-    print(x)
+        print(x)
