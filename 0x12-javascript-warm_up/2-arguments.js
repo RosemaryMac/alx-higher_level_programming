@@ -3,9 +3,9 @@ const argc = process.argv.length;
 
 //print process.argv
 if (argc === 2) {
-	console.log('Argument found');
+	console.log('no argument');
 } else if (argc === 3) {
-	console.log('Arguments found');
+	console.log('Argument found');
 } else { 
-	console.log('No argument');
+	console.log('Arguments found');
 }
