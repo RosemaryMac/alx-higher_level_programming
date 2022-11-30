@@ -1,10 +1,11 @@
 #!/usr/bin/node
-import { argv } from 'node:process';
+const argc = process.argv.length;
 
 //print process.argv
-if (argv.forEach((val, index) => {
-	console.log(`${index}: ${val}`);
-}) > 0) {
-	console.log(`${index}: ${val} arguments found`);
-} else { console.log('No argument');
+if (argc === 2) {
+	console.log('Argument found');
+} else if (argc === 3) {
+	console.log('Arguments found');
+} else { 
+	console.log('No argument');
 }
