@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const request = require('request');
-const fpath = PATH(0 - readme.js);
+const url = url(https://github.com/RosemaryMac/alx-higher_level_programming/blob/master/0x14-javascript-web_scraping/0-readme.js);
 
-request(fpath, function (error, response, body) {
+request(url, function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
